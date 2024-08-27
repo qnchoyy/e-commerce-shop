@@ -9,4 +9,10 @@
 ## Implementation
 
 - [x] Header
-- [ ] Home
+- [x] Uses 'react-router-dom' for internal linking.
+
+## Features
+
+- [ ] Home page
+- [x] Products
+- [ ] Shopping cart
