@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+}
+
+.headerLogo a {
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.headerNav .headerList {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.headerNav .navItem a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.headerNav .navItem a:hover {
+  color: #ff6347;
+}
