@@ -78,7 +78,7 @@ a {
   width: 100%;
   font-size: 16px;
   height: 55px;
-  color: #b9b9b9;
+  color: #010101;
   background: transparent;
   padding-inline: 20px 54px;
   border-radius: 30px;
@@ -91,11 +91,13 @@ a {
   transition: 0.2s;
   top: 15px;
   left: 20px;
+  font-size: 16px;
+  color: #aaa;
+  transition: 0.2s ease all;
 }
 
 .inputField:focus ~ .label,
-.inputField:valid .label {
-  position: absolute;
+.inputField:not(:placeholder-shown) ~ .label {
   font-size: 14px;
   top: -10px;
   left: 20px;

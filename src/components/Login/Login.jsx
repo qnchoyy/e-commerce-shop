@@ -47,6 +47,7 @@ export default function Login() {
             type="text"
             className={styles.inputField}
             required
+            placeholder=""
           />
           <label className={styles.label}>Username</label>
           <i className="fa-regular fa-user icon" />
@@ -58,6 +59,7 @@ export default function Login() {
             type="password"
             className={styles.inputField}
             required
+            placeholder=""
           />
           <label htmlFor="password" className={styles.label}>
             Password
