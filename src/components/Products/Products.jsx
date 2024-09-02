@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import styles from "./Products.module.css";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
+
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -39,7 +42,10 @@ export default function Products() {
               >
                 <i className="fa fa-eye"></i>
               </button>
-              <button className={styles.addToCartButton}>
+              <button
+                className={styles.addToCartButton}
+                onClick={() => addToCart(product)}
+              >
                 <i className="fa fa-plus"></i>
               </button>
               <h2 className={styles.productTitle}>{product.title}</h2>

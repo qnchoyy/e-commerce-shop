@@ -30,3 +30,10 @@
 .headerNav .navItem a:hover {
   color: #ff6347;
 }
+
+.cartButton {
+  color: white;
+  margin-left: 20px;
+  border: none;
+  cursor: pointer;
+}

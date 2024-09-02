@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 
-export default function Header() {
+export default function Header({ onCartToggle }) {
   return (
     <header className={styles.header}>
       <div className={styles.headerLogo}>
@@ -15,8 +15,10 @@ export default function Header() {
           <li className={styles.navItem}>
             <Link to="/login">Log in</Link>
           </li>
-          <li className={styles.navItem}>
-            <Link to="/cart">Cart</Link>
+          <li>
+            <button onClick={onCartToggle} className={styles.cartButton}>
+              <i className="fa fa-shopping-cart"></i>
+            </button>
           </li>
         </ul>
       </nav>

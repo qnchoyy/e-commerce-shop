@@ -15,4 +15,5 @@
 
 - [ ] Home page
 - [x] Products
+- [x] Product details
 - [ ] Shopping cart
