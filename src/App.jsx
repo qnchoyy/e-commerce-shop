@@ -4,17 +4,29 @@ import Home from "./components/Home/Home";
 import Products from "./components/Products/Products";
 import Login from "./components/Login/Login";
 import Details from "./components/Details/Details";
+import { CartProvider } from "./components/context/CartContext";
+import Cart from "./components/Cart/Cart";
+import { useState } from "react";
 
 function App() {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/details/:id" element={<Details />} />
-      </Routes>
+      <CartProvider>
+        <Header onCartToggle={toggleCart} />
+        <Cart isOpen={isCartOpen} onClose={toggleCart} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/details/:id" element={<Details />} />
+        </Routes>
+      </CartProvider>
     </>
   );
 }
