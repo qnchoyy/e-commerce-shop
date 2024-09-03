@@ -16,4 +16,4 @@
 - [ ] Home page
 - [x] Products
 - [x] Product details
-- [ ] Shopping cart
+- [x] Shopping cart

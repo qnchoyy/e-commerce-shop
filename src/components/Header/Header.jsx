@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 export default function Header({ onCartToggle }) {
+  const { cartItems } = useContext(CartContext);
+
+  const totalItems = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
   return (
     <header className={styles.header}>
       <div className={styles.headerLogo}>
@@ -18,6 +27,9 @@ export default function Header({ onCartToggle }) {
           <li>
             <button onClick={onCartToggle} className={styles.cartButton}>
               <i className="fa fa-shopping-cart"></i>
+              {totalItems > 0 && (
+                <span className={styles.cartBadge}>{totalItems}</span>
+              )}
             </button>
           </li>
         </ul>
