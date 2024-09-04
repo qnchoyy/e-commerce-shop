@@ -93,3 +93,10 @@
 .detailsButton:hover {
   color: #ff5722;
 }
+
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
