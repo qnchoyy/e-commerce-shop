@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import styles from "./Details.module.css";
+import { CartContext } from "../context/CartContext";
 
 export default function Details() {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
   const navigate = useNavigate();
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -33,7 +35,12 @@ export default function Details() {
         <p className={styles.productDescription}>{product.description}</p>
         <p className={styles.productPrice}>Price: ${product.price}</p>
         <div className={styles.buttons}>
-          <button className={styles.addToCartButton}>Add to Cart</button>
+          <button
+            onClick={() => addToCart(product)}
+            className={styles.addToCartButton}
+          >
+            Add to Cart
+          </button>
           <button className={styles.goBackButton} onClick={() => navigate(-1)}>
             Go Back
           </button>
