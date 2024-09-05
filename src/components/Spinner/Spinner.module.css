@@ -9,7 +9,7 @@
       #0000 calc(100% - 15.7px),
       rgba(71, 75, 255, 0.1) 0
     );
-  animation: spinner-aur408 2s infinite linear;
+  animation: spinner-aur408 1s infinite linear;
   margin: 0 auto;
   box-shadow: 0 0 10px #474bff;
 }
