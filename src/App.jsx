@@ -23,6 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/:category" element={<Products />} />
           <Route path="/details/:id" element={<Details />} />
         </Routes>
       </CartProvider>

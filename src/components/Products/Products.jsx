@@ -1,35 +1,60 @@
 import { useContext, useEffect, useState } from "react";
-
 import styles from "./Products.module.css";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import Spinner from "../Spinner/Spinner";
 
+const categories = [
+  "all",
+  "electronics",
+  "jewelery",
+  "men's clothing",
+  "women's clothing",
+];
+
 export default function Products() {
   const [products, setProducts] = useState([]);
-  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
-
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const navigate = useNavigate();
   const { addToCart } = useContext(CartContext);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch("https://fakestoreapi.com/products");
-        const data = await response.json();
-        setProducts(data);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-        setIsLoading(false);
+  const fetchProducts = async (category) => {
+    try {
+      setIsLoading(true);
+      let url = "https://fakestoreapi.com/products";
+      if (category !== "all") {
+        url = `https://fakestoreapi.com/products/category/${category}`;
       }
-    };
+      const response = await fetch(url);
+      const data = await response.json();
+      setProducts(data);
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      setIsLoading(false);
+    }
+  };
 
-    fetchProducts();
-  }, []);
+  useEffect(() => {
+    fetchProducts(selectedCategory);
+  }, [selectedCategory]);
 
   return (
     <>
+      {/* Бутони за категориите */}
+      <div className={styles.categoryButtons}>
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => setSelectedCategory(category)}
+            className={selectedCategory === category ? styles.activeButton : ""}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
       <div className={styles.productsList}>
         {isLoading ? (
           <div className={styles.spinnerContainer}>
@@ -58,12 +83,10 @@ export default function Products() {
                   <i className="fa fa-plus"></i>
                 </button>
                 <h2 className={styles.productTitle}>{product.title}</h2>
-                {/* <p className={styles.productDescription}>{product.description}</p> */}
                 <p className={styles.productPrice}>Price: ${product.price}</p>
                 <p className={styles.productRating}>
                   Rating: {product.rating.rate} ({product.rating.count} reviews)
                 </p>
-                {/* <button className={styles.addToCartButton}>Add to Cart</button> */}
               </li>
             ))}
           </ul>
