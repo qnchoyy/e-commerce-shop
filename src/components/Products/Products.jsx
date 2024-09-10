@@ -42,7 +42,6 @@ export default function Products() {
 
   return (
     <>
-      {/* Бутони за категориите */}
       <div className={styles.categoryButtons}>
         {categories.map((category) => (
           <button
