@@ -1,6 +1,10 @@
-.productsList {
-  padding: 40px;
+body {
   background-color: #e0e0e0;
+}
+
+.productsList {
+  background-color: #e0e0e0;
+  padding: 20px 0;
 }
 
 .products {
