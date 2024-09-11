@@ -15,5 +15,6 @@
 
 - [ ] Home page
 - [x] Products
+- [x] Add categories in products
 - [x] Product details
 - [x] Shopping cart
