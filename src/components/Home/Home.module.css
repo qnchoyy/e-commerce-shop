@@ -1,0 +1,86 @@
+.homepage {
+  font-family: "Arial", sans-serif;
+  background-color: #ded7d7;
+}
+
+.heroSection {
+  height: 90vh;
+  background: url("/path-to-your-image.jpg") no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.heroContent h1 {
+  font-size: 4em;
+  color: white;
+}
+
+.heroContent p {
+  font-size: 1.5em;
+  color: white;
+  margin: 20px 0;
+}
+
+.shopNowBtn {
+  padding: 15px 30px;
+  background-color: #ff5722;
+  border: none;
+  color: white;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.shopNowBtn:hover {
+  background-color: #e64a19;
+}
+
+.featuredProducts {
+  padding: 60px;
+  background-color: white;
+}
+
+.featuredProducts h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5em;
+}
+
+.productList {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.productCard {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.productCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .heroContent h1 {
+    font-size: 2.5em;
+  }
+
+  .heroContent p {
+    font-size: 1.2em;
+  }
+
+  .productList {
+    flex-direction: column;
+  }
+}
