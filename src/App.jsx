@@ -7,6 +7,7 @@ import Details from "./components/Details/Details";
 import { CartProvider } from "./components/context/CartContext";
 import Cart from "./components/Cart/Cart";
 import { useState } from "react";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -26,6 +27,7 @@ function App() {
           <Route path="/products/:category" element={<Products />} />
           <Route path="/details/:id" element={<Details />} />
         </Routes>
+        <Footer />
       </CartProvider>
     </>
   );
